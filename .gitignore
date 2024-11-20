@@ -1,0 +1,9 @@
+/target/
+/.idea/
+/.vscode/
+*.env
+.env
+*.lock
+*.workspace
+*.dat
+/lib/modules/listener/target/
