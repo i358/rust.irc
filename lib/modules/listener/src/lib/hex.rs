@@ -18,3 +18,4 @@ pub fn from_hex(hex: &str) -> Result<String, &'static str> {
 
     Ok(result)
 }
+ 

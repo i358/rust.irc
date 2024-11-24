@@ -21,4 +21,4 @@ pub fn new(name: &str, privacy_options: Vec<Privacy>) -> Self {
         privacy_options
     }
 }
-}
+} 
