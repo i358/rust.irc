@@ -1,8 +1,9 @@
-pub fn to_hex(t: String, bytes: &mut String) {
+pub fn to_hex(t: &str, bytes: &mut String) {
     for c in t.chars() {
         bytes.push_str(&format!("{:02x}", c as u8));
     }
 }
+
 
 pub fn from_hex(hex: &str) -> Result<String, &'static str> {
     if hex.len() % 2 != 0 {

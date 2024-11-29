@@ -61,8 +61,7 @@ fn create_config_file() -> Result<()> {
 
     let mut sets = Ini::new();
     sets.with_section(Some("Locations"))
-        .set("dat", "session.dat")
-        .set("sessions", "sessions");
+        .set("dat", "session.dat");
 
     sets.write_to_file("config/session.ini")
         .with_context(|| "Ayar dosyası oluşturulurken bir hata oluştu.")?;
