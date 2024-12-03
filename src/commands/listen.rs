@@ -10,7 +10,7 @@ pub const COMMAND: Command = Command {
         let command = std::process::Command::new("cmd")
         .arg("/C")
         .arg(format!(
-            "start lib/modules/server/target/debug/listener.exe -H {} -p {}",
+            "start lib/modules/server/listener.exe -H {} -p {}",
              host.name, host.port
         ))
         .spawn();

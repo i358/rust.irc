@@ -12,14 +12,14 @@ pub const COMMAND: Command = Command {
         }
 
         let username = &user.name;
-        let (host, port) = args[0].split_once(":").unwrap();
+        if let Some((host, port)) = args[0].split_once(":") {
     
 
         
         let command = std::process::Command::new("cmd")
             .arg("/C")
             .arg(format!(
-                "start lib/modules/client/target/debug/client.exe -H {} -p {} -u {}",
+                "start lib/modules/client/client.exe -H {} -p {} -u {}",
                 host, port, username
             ))
             .spawn();
@@ -32,5 +32,9 @@ pub const COMMAND: Command = Command {
                 eprintln!("client.exe başlatılamadı: {}", e);
             }
         }
+    } else { 
+        println!("Kullanım: /join <host>:<port>");
+        return;
+    }
     },
 };

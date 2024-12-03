@@ -103,6 +103,7 @@ impl App {
                         .write_all(format!("FN<>::Message {data}\r\n").as_bytes())
                         .await
                         .unwrap();
+                    writer.flush().await.unwrap();
                     self.input.clear();
                 }
             }
