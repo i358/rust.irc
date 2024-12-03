@@ -206,7 +206,7 @@ async fn app(user: Session) {
         .bold()
     );
     let port: u16 = rand::thread_rng().gen_range(1000..65535);
-    let host: Host = Host::new("localhost", port);
+    let host: Host = Host::new("127.0.0.1", port);
     let commands: HashMap<String, Command> = commands::get_commands()
         .into_iter()
         .map(|cmd| (cmd.name.to_string(), cmd))
@@ -232,7 +232,7 @@ async fn app(user: Session) {
             if let Some((cmd_name, args)) = parts.split_first() {
                 if let Some(cmd) = commands.get(cmd_name) {
                     println!("");
-                    (cmd.exec)(args.to_vec(), &user);
+                    (cmd.exec)(args.to_vec(), &user, &host);
                 } else {
                     println!("Bilinmeyen komut: /{}", cmd_name);
                 }

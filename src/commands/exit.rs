@@ -6,7 +6,7 @@ pub const COMMAND: Command = Command {
     usage: "/exit",
     args: &[""],
     description: "Programı sonlandırır.",
-    exec: |_args, _user| {
+    exec:|_, _, _| {
         std::process::exit(0);
     },
 };

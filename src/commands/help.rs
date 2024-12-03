@@ -21,7 +21,7 @@ pub const COMMAND: Command = Command {
     usage: "/help",
     args: &[""],
     description: "Mevcut komutları listeler.",
-    exec: |_args, _user| {
+    exec:|_, _, _| {
         let commands = get_commands();
 
         let command_data: Vec<CommandInfo> = commands

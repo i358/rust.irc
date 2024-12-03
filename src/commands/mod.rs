@@ -1,11 +1,11 @@
-use crate::util::session::Session;
+use crate::util::{host::Host, session::Session};
 
 pub struct Command {
     pub name: &'static str,
     pub usage: &'static str,
     pub description: &'static str,
     pub args: &'static [&'static str],
-    pub exec: fn(args: Vec<String>, user: &Session),
+    pub exec: fn(args: Vec<String>, user: &Session, &Host),
 }
 
 pub mod help;

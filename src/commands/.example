@@ -5,7 +5,8 @@ pub const COMMAND: Command = Command {
     usage: "/ [..args]",
     args: &["?"],
     description: "",
-    exec: |_args, _user| {
+    exec:|_, _, _| {
+    
       
     },
 };
