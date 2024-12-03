@@ -158,7 +158,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                     },
                     Ok(_) => {
                         if let Some((header, body)) = lines.split_once("::") {
-                            let header = header.trim();
                             let body = body.trim();
 
                             match header {
@@ -176,7 +175,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                                     writer.flush().await?;
                                 }
                                 "OK" => {
-                                    if body.starts_with("Connection Established") {
+                                   
+                                    if body.contains("Connection Established") {
                                         app.insert("log: Sunucu tarafından kimlik doğrulama işlemi onaylandı. Bağlantı kuruldu, sunucu tarafından kullanıcı ID'si atanması bekleniyor.");
                                     }
                                 }
@@ -235,8 +235,14 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                                     .fg(match parts[0] {
                                         "log" => Color::LightYellow,
                                         "error" => Color::LightRed,
-                                        "join" => Color::LightCyan,
-                                        _ => Color::LightRed,
+                                        "join" => Color::LightGreen,
+                                        _ => {
+                                            if parts[0] == username {
+                                                Color::LightCyan
+                                            } else {
+                                                Color::LightRed
+                                            }
+                                        },
                                     })
                                     .add_modifier(tui::style::Modifier::BOLD),
                             ),

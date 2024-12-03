@@ -2,18 +2,18 @@ use crate::commands::Command;
 
 pub const COMMAND: Command = Command {
     name: "join",
-    usage: "/join <host> <port>",
-    args: &["host", "port"],
+    usage: "/join <addr>",
+    args: &["addr"],
     description: "Belirli bir sunucuya katılıp sohbet etmek için kullanılır.",
     exec:|args, user, _| {
-        if args.len() < 2 {
-            println!("Kullanım: /join <host> <port>");
+        if args.len() < 1 {
+            println!("Kullanım: /join <host>:<port>");
             return;
         }
 
         let username = &user.name;
-        let host = &args[0];
-        let port = &args[1];
+        let (host, port) = args[0].split_once(":").unwrap();
+    
 
         
         let command = std::process::Command::new("cmd")

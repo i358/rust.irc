@@ -24,7 +24,7 @@ const SESSION_FOLDER_PATH: &'static str = "sessions";
 struct Args {
     #[arg(short = 'H', long = "hostname", default_value = "0.0.0.0")]
     host: String,
-    #[arg(short = 'p', long = "port", default_value = "33363")]
+    #[arg(short = 'p', long = "port", default_value = "80")]
     port: u16,
 }
 
