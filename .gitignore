@@ -6,6 +6,7 @@
 *.lock
 *.workspace
 *.dat
-/lib/modules/listener/target/
+/lib/modules/server/target/
+/lib/modules/client/target/
 *.code-workspace
 *.exe
