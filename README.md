@@ -1,1 +1,1 @@
-# BİTMEDİ KARDEŞİM BİTMEDİ 
+# Incompleted
